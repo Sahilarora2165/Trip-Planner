@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "trip-planner"
+version = "0.1.0"
+description = "Simple ai trip planner"
+authors = ["Sahil"]
+
+[tool.poetry.dependencies]
+python = ">=3.10.0,<3.12"
+crewai = "^0.1.24"
+unstructured = '==0.10.25' # Library for parsing and processing unstructured data (documents, PDFs, etc.)
+pyowm = "3.3.0" # for weather data
+tools = "^0.1.9" # CrewAI tools library - provides pre-built tools for AI agents
+python-dotenv = "1.0.0" # Environment variable management - for loading API keys from .env files
+
+[build-system]
+# Specifies what tools are needed to build your package
+requires = ["poetry-core>=1.0.0"]  # Minimum version of poetry-core required
+
+# Defines which backend tool actually performs the building
+build-backend = "poetry.core.masonry.api"  # Uses Poetry's build system

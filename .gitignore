@@ -1,0 +1,12 @@
+# Environment Variables
+# Virtual environment
+venv/
+.env/
+*.env
+
+# Cache Folders
+__pycache__/
+
+Notes.md
+
+
