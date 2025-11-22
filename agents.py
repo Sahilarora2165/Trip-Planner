@@ -1,12 +1,24 @@
 from crewai import Agent
 from textwrap import dedent
+from langchain_groq import ChatGroq
 from tools.search_tools import SearchTools
 from tools.calculator_tools import CalculatorTools
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
 
 class TravelAgents:
-    def __init__(self): # Constructor
-        self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
-        self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
+    def __init__(self):
+        # Initialize Groq LLM using API key from .env with updated model
+        self.GroqLlama3 = ChatGroq(
+            temperature=0.7,
+            model="llama-3.3-70b-versatile",
+            api_key=os.getenv("GROQ_API_KEY")
+        )
+        # Ollama doesn't require an API key
+        from langchain_community.llms import Ollama
         self.Ollama = Ollama(model="openhermes")
 
     def expert_travel_agent(self):
@@ -23,7 +35,7 @@ class TravelAgents:
                 CalculatorTools.calculate
             ],
             verbose=True,
-            llm=self.OpenAIGPT35,
+            llm=self.GroqLlama3,
         )
 
     def city_selection_expert(self):
@@ -33,7 +45,7 @@ class TravelAgents:
             goal=dedent(f"""Select the best cities based on weather , season , prices and travel interests"""),
             tools=[SearchTools.search_internet],
             verbose=True,
-            llm=self.OpenAIGPT35,
+            llm=self.GroqLlama3,
         )
 
     def local_tour_guide(self):
@@ -44,5 +56,5 @@ class TravelAgents:
             goal=dedent(f"""Provide the BEST insights about the selected city"""),
             tools=[SearchTools.search_internet],
             verbose=True,
-            llm=self.OpenAIGPT35,
+            llm=self.GroqLlama3,
         )

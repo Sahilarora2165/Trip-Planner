@@ -765,6 +765,29 @@ docs = ["Sphinx", "furo"]
 test = ["objgraph", "psutil", "setuptools"]
 
 [[package]]
+name = "groq"
+version = "0.36.0"
+description = "The official Python library for the groq API"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "groq-0.36.0-py3-none-any.whl", hash = "sha256:ac7eeae31a5c2e76d30ea678f0b1a9168ff906c4440f5ec3a42ac74d5b4fdb3c"},
+    {file = "groq-0.36.0.tar.gz", hash = "sha256:766fa1ae34918552c6488767b16d4bd0ee3f0fb7809cd9f7760c90d13f32c63a"},
+]
+
+[package.dependencies]
+anyio = ">=3.5.0,<5"
+distro = ">=1.7.0,<2"
+httpx = ">=0.23.0,<1"
+pydantic = ">=1.9.0,<3"
+sniffio = "*"
+typing-extensions = ">=4.10,<5"
+
+[package.extras]
+aiohttp = ["aiohttp", "httpx-aiohttp (>=0.1.9)"]
+
+[[package]]
 name = "h11"
 version = "0.16.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -2074,18 +2097,6 @@ files = [
 ]
 
 [[package]]
-name = "pytils"
-version = "0.4.4"
-description = "Russian-specific string utils"
-optional = false
-python-versions = "*"
-groups = ["main"]
-files = [
-    {file = "pytils-0.4.4-py3-none-any.whl", hash = "sha256:e54c16465a5fdb65d414e2da8045e6cc6de79889acda6143dcef2e1e86a1a840"},
-    {file = "pytils-0.4.4.tar.gz", hash = "sha256:9992a96caad57daa211584df1da4fd825f11e836d3ed93011785f1d02ab6f0ca"},
-]
-
-[[package]]
 name = "pyyaml"
 version = "6.0.3"
 description = "YAML parser and emitter for Python"
@@ -2644,22 +2655,6 @@ requests = ">=2.26.0"
 blobfile = ["blobfile (>=2)"]
 
 [[package]]
-name = "tools"
-version = "0.1.9"
-description = "Set of tools for web scraping projects"
-optional = false
-python-versions = "*"
-groups = ["main"]
-files = [
-    {file = "tools-0.1.9.tar.gz", hash = "sha256:7b7f998462cf5b02635fba76cc7cdb3653468aa46ff074b979dbecdb2a2fb014"},
-]
-
-[package.dependencies]
-lxml = "*"
-pytils = "*"
-six = "*"
-
-[[package]]
 name = "tqdm"
 version = "4.67.1"
 description = "Fast, Extensible Progress Meter"
@@ -2968,4 +2963,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10.0,<3.12"
-content-hash = "a8197fbb09a9a825524b6721f20d12005040f55f440323fc1115749bb65d3ad8"
+content-hash = "e44ec012a1698cc101e240b390f33f970ddf3ca99ec557edeadcfdebe8e80186"

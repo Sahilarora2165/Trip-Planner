@@ -2,3 +2,5 @@ crewai
 langchain
 ollama
 python-dotenv
+langchain-groq
+langchain-community
